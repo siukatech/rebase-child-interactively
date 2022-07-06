@@ -12,24 +12,18 @@ For example, i tried 3 times, the [number]=3
 
 # Scenario
 working-1-main = our develop branch, working-1-develop = out feature branch
-2 updates from "working-1-main"
-2 local pushes in "working-1-develop"
+5 updates from "working-1-develop"
+rebased changes in "working-1-develop" to "working-1-main"
+1 of the commit is required to remove from "working-1-develop" and "working-1-main"
+rebase "interactively" will be used
 
 Steps:
-A) Working with the "working-1-main" branch
-1. Switch to local "working-1-main"
-2. Pull 2 updates without clicking any option
-
-B) Working with the "working-1-develop" branch
-1. Switch to local "working-1-develop"
-2. Right click "working-1-main" on left panel
-3. Rebase current changes onto "working-1-main"
-4. Push to remote (depend) ***Force Push is required if there is [x]behind y[fast-forward]
-
-C) Working with the "working-1-main" branch
-1. Switch to local "working-1-main"
-2. Right click "working-1-develop" on left panel
-3. ~~Rebase current changes onto "working-1-develop"~~
-4. **Merge** "working-1-develop" into "working-1-main"
-5. Push to remote (depend)
+1. Create new branch (e.g. working-1-develop-1-working) at the commit that will be removed
+2. Switch to branch (e.g. working-1-develop) that contains the "will be removed" commit
+3. Right click the initial commit (commit before "will be removed" commit)
+4. Select "rebase children of xxx interactively" (sourcetree) or "interactive rebase" -> "rebase interactively [your branch, e.g. working-1-develop] to here" (forkgit)
+select delete or drop the commit "target to remove"
+5. Click rebase
+6. [your branch (local), e.g. working-1-develop] will be updated and requires a force push to update the origin (remote)
+7. [your branch, e.g. working-1-develop] does not contain the "will be removed" commit anymore
 
